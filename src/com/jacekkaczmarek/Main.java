@@ -73,12 +73,14 @@ public class Main {
         checkOut(jackBasket);
         jackBasket.clearBasket();
 
-        Basket sceondBasket = new Basket("Second");
-        item = new CarItem("Pants",10,4);
+        Basket sceondBasket = new Basket("Szymon");
+        item = new CarItem("Porsche",900000,2);
         if(canAdd(item, carList)){
             sceondBasket.addToBasket(item,item.getQuantity());}
 
         System.out.println(sceondBasket);
+        checkOut(sceondBasket);
+        sceondBasket.clearBasket();
 
         /////////////////////////////////////////
         ////////////////////////////////////////
@@ -102,7 +104,7 @@ public class Main {
 
     public static boolean canAdd(CarItem item, CarList carList){
         if(carList.contain(item.getName())) {
-            if ( (item.getQuantity() < carList.get(item.getName()).getQuantity())
+            if ( (item.getQuantity() <= carList.get(item.getName()).getQuantity())
             && item.getPrice()==carList.get(item.getName()).getPrice()) {
                 return true;
             }
